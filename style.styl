@@ -1,28 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
 
 // VARS
-color_primary = #7380ec
-color_danger = #ff7782
-color_success = #41f1b6
-color_warning = #ffbb55
-color_white = #fff
-color_info_dark = #7d8da1
-color_info_light = #dce1eb
-color_dark = #363949
-color_light = rgba(132, 139, 200, 0.18)
-color_primary_variant = #111e88
-color_dark_variant = #677483
-color_background = #f6f6f9
+:root
+    --color_primary: #7380ec
+    --color_danger: #ff7782
+    --color_success: #41f1b6
+    --color_warning: #ffbb55
+    --color_white: #fff
+    --color_info_dark: #7d8da1
+    --color_info_light: #dce1eb
+    --color_dark: #363949
+    --color_light: rgba(132, 139, 200, 0.18)
+    --color_primary_variant: #111e88
+    --color_dark_variant: #677483
+    --color_background: #f6f6f9
 
-card_border_radius = 2rem
-border_radius_1 = 0.4rem
-border_radius_2 = 0.8rem
-border_radius_3 = 1.2rem
+    --card_border_radius: 2rem
+    --border_radius_1: 0.4rem
+    --border_radius_2: 0.8rem
+    --border_radius_3: 1.2rem
 
-card_padding = 1.8rem
-padding_1 = 1.2rem
+    --card_padding: 1.8rem//
+    --padding_1: 1.2rem
 
-box_shadow = 0 2rem 3rem color_light
+    --box_shadow: 0 2rem 3rem var(--color_light)
+
+.dark_theme
+    --color_background: #181a1e
+    --color_white: #202528
+    --color_dark: #edeffd
+    --color_dark_variant: #a3bdcc
+    --color_light: rgba(0, 0, 0, 0.4)
+    --box_shadow: 0 2rem 3rem var(--color_light)
 
 // GENERAL
 *
@@ -43,10 +52,10 @@ body
     height 100vh
     font-family montserrat, sans-serif
     font-size 0.88rem
-    background color_background
+    background var(--color_background)
     user-select none
     overflow-x hidden
-    color color_dark
+    color var(--color_dark)
 
 .container
     display grid
@@ -56,7 +65,7 @@ body
     grid-template-columns 14rem auto 23rem
 
 a
-    color color_dark
+    color var(--color_dark)
 
 img
     display block
@@ -82,25 +91,25 @@ small
     font-size 0.75rem
 
 .text_muted
-    color color_info_dark
+    color var(--color_info_dark)
 
 p
-    color color_dark_variant
+    color var(--color_dark_variant)
 
 b
-    color color_dark
+    color var(--color_dark)
 
 .primary
-    color color_primary !important
+    color var(--color_primary) !important
 
 .danger
-    color color_danger !important
+    color var(--color_danger) !important
 
 .success
-    color color_success !important
+    color var(--color_success) !important
 
 .warning
-    color color_warning !important
+    color var(--color_warning) !important
 
 .profile_photo
     width 2.8rem
@@ -126,6 +135,7 @@ aside
 
     .logo
         display flex
+        align-items center
         gap 0.8rem
         img
             width 2rem
@@ -145,25 +155,25 @@ aside
             display flex
             align-items center
             height 3.7rem
-            color color_info_dark
+            color var(--color_info_dark)
             margin-left 2rem
             gap 1rem 
             transition all 300ms ease
             &:hover
-                color color_primary
+                color var(--color_primary)
                 span
                     margin-left 1rem
             &.active
-                background color_light
-                color color_primary
+                background var(--color_light)
+                color var(--color_primary)
                 margin-left 0
                 &:before
                     content ''
                     width 6px
                     height 100%
-                    background color_primary
+                    background var(--color_primary)
                 span
-                    color color_primary
+                    color var(--color_primary)
                     margin-left calc(1rem - 3px)
             &:last-child
                 position absolute
@@ -176,11 +186,11 @@ aside
             font-weight 500
 
         .message_count
-            background color_danger
-            color color_white
+            background var(--color_danger)
+            color var(--color_white)
             padding 2px 10px
             font-size 11px
-            border-radius border_radius_1
+            border-radius var(--border_radius_1)
 
 // MAIN
 main
@@ -189,13 +199,13 @@ main
     // DATE
     .date
         display inline-block
-        background color_light
-        border-radius border_radius_1
+        background var(--color_light)
+        border-radius var(--border_radius_1)
         margin-top 1rem
         padding 0.5rem 1.6rem
         input[type='date']
             background transparent
-            color color_dark
+            color var(--color_dark)
 
     // INSIGHTS
     .insights
@@ -204,22 +214,22 @@ main
         gap 1.6rem
 
         > div
-            background color_white
-            padding card_padding
-            border-radius card_border_radius
+            background var(--color_white)
+            padding var(--card_padding)
+            border-radius var(--card_border_radius)
             margin-top 1rem
-            box-shadow box_shadow
+            box-shadow var(--box_shadow)
             &:hover
                 box-shadow none
             &.expenses span
-                background color_danger
+                background var(--color_danger)
             &.income span
-                background color_success
+                background var(--color_success)
             span
-                background color_primary
+                background var(--color_primary)
                 padding 0.5rem
                 border-radius 50%
-                color color_white
+                color var(--color_white)
                 font-size 2rem
 
             .middle
@@ -242,7 +252,7 @@ main
             height 7rem
             circle
                 fill none
-                stroke color_primary
+                stroke var(--color_primary)
                 stroke-width 14 
                 stroke-linecap round
                 transform translate(5px, 5px)
@@ -283,12 +293,12 @@ main
             margin-bottom 0.8rem
 
         table
-            background color_white
+            background var(--color_white)
             width 100%
-            border-radius card_border_radius
-            padding card_padding
+            border-radius var(--card_border_radius)
+            padding var(--card_padding)
             text-align center
-            box-shadow box_shadow
+            box-shadow var(--box_shadow)
             transition all 300ms ease
             &:hover
                 box-shadow none
@@ -296,8 +306,8 @@ main
             tbody 
                 td
                     height 2.8rem
-                    border-bottom 1px solid color_light
-                    color color_dark_variant
+                    border-bottom 1px solid var(--color_light)
+                    color var(--color_dark_variant)
                 tr:last-child td
                     border none
 
@@ -305,7 +315,7 @@ main
             text-align center
             display block
             margin 1rem auto
-            color color_primary
+            color var(--color_primary)
 
 // RIGHT
 .right
@@ -323,14 +333,14 @@ main
             text-align right 
 
     .theme_toggler
-        background color_light
+        background var(--color_light)
         display flex
         justify-content space-between
         align-items center
         height 1.6rem
         width 4.2rem
         cursor pointer
-        border-radius border_radius_1
+        border-radius var(--border_radius_1)
         span
             font-size 1.2rem
             width 50%
@@ -339,9 +349,9 @@ main
             align-items center
             justify-content center
             &.active
-                background color_primary
-                color color_white
-                border-radius border_radius_1
+                background var(--color_primary)
+                color var(--color_white)
+                border-radius var(--border_radius_1)
 
     // RECENT UPDATES
     .recent_updates
@@ -349,10 +359,10 @@ main
         h2
             margin-bottom 0.8rem
         .updates
-            background color_white
-            padding card_padding
-            border-radius card_border_radius
-            box-shadow box_shadow
+            background var(--color_white)
+            padding var(--card_padding)
+            border-radius var(--card_border_radius)
+            box-shadow var(--box_shadow)
             transition all 300ms ease
             &:hover
                 box-shadow none
@@ -369,21 +379,21 @@ main
         h2
             margin-bottom 0.8rem
         .item
-            background color_white
+            background var(--color_white)
             display flex
             align-items center
             gap 1rem
             margin-bottom 0.7rem
-            padding 1.4rem card_padding
-            border-radius border_radius_3
-            box-shadow box_shadow
+            padding 1.4rem var(--card_padding)
+            border-radius var(--border_radius_3)
+            box-shadow var(--box_shadow)
             transition all 300ms ease
             &:hover
                 box-shadow none
             &.offline .icon
-                background color_danger
+                background var(--color_danger)
             &.customers .icon
-                background color_success
+                background var(--color_success)
 
             .right
                 display flex
@@ -394,18 +404,21 @@ main
 
             .icon
                 padding 0.6rem
-                color color_white
+                color var(--color_white)
                 border-radius 50%
-                background color_primary
+                background var(--color_primary)
                 display flex
 
         .add_product
             background-color transparent
-            border 2px dashed color_primary
-            color color_primary
+            border 2px dashed var(--color_primary)
+            color var(--color_primary)
             display flex
             align-items center
             justify-content center
+            &:hover
+                background var(--color_primary)
+                color var(--color_white)
             div
                 display flex
                 align-items center
@@ -457,17 +470,19 @@ main
 @media screen and (max-width: 768px)
     .container
         width 100%
+        grid-template-columns 1fr
 
     aside
         position fixed
-        left 0
-        background color_white
+        left -100%
+        background var(--color_white)
         width 18rem
         z-index 3
-        box-shadow 1rem 3rem 4rem color_light
+        box-shadow 1rem 3rem 4rem var(--color_light)
         height 100vh
-        padding-right card_padding
+        padding-right var(--card_padding)
         display none
+        animation showMenu 400ms ease forwards
         .logo
             margin-left 1rem
             h2
@@ -507,11 +522,11 @@ main
             align-items center
             padding 0 0.8rem
             height 4.6rem
-            background color_white
+            background var(--color_white)
             width 100%
             margin 0
             z-index 2
-            box-shadow 0 1rem 1rem color_light
+            box-shadow 0 1rem 1rem var(--color_light)
             .theme_toggler
                 width 4.4rem
                 position absolute
@@ -519,6 +534,20 @@ main
             button
                 display inline-block
                 background transparent
+                cursor pointer
+                color var(--color_dark)
+                position absolute
+                left 1rem
+                span
+                    font-size 2rem
 
         .profile .info
             display none
+
+@keyframes showMenu
+{
+    to
+    {
+        left 0
+    }
+}
